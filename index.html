@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QABBALA // THE NUMERICAL ARCHIVE</title>
+<meta name="description" content="Explore the numerical structure of literary, philosophical, and religious texts with alphanumeric ciphers, distributions, sequences, and translation comparisons.">
+<link rel="canonical" href="https://artificialsand.github.io/qabbala/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Qabbala Explorer">
+<meta property="og:title" content="Qabbala Explorer — The Numerical Archive">
+<meta property="og:description" content="Explore gematria and alphanumeric qabbala across entire texts: ciphers, statistical distributions, sequences, and translation comparisons.">
+<meta property="og:url" content="https://artificialsand.github.io/qabbala/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Qabbala Explorer — The Numerical Archive">
+<meta name="twitter:description" content="Explore numerical readings of entire texts: ciphers, distributions, sequences, and translation comparisons.">
+<style>
+:root{color-scheme:dark;--bg:#101519;--surface:#1b2327;--line:#354348;--fg:#e9ebe3;--soft:#aeb9b7;--gold:#85d7fc;--gold2:#aaa96e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.55 system-ui,-apple-system,sans-serif}header{padding:32px max(20px,calc((100vw - 1420px)/2));background:linear-gradient(115deg,#293137,#161d21);border-bottom:1px solid var(--line)}h1{margin:0;color:var(--gold);font-size:clamp(27px,3.5vw,44px);letter-spacing:-.04em}header p{margin:3px 0;color:var(--soft)}main{max-width:1460px;padding:22px 24px 70px;margin:auto}.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:15px;padding:20px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.16em;font-weight:700;font-size:11px;margin-bottom:13px}.fields{display:flex;flex-wrap:wrap;gap:11px;align-items:flex-end}.field{display:flex;flex:1;min-width:140px;flex-direction:column;gap:5px}.field.grow{flex:2.5;min-width:200px}label{color:var(--soft);font-size:12px;font-weight:650}input,select,button,textarea{font:inherit;padding:9px 10px;color:var(--fg);background:#11191d;border:1px solid #526065;border-radius:7px;min-height:39px}button{cursor:pointer;background:#303d40;font-weight:650}button:hover{border-color:var(--gold)}button.primary{background:var(--gold);color:#192023;border-color:var(--gold)}input[type=file]{max-width:100%;font-size:12px}.subtle{color:var(--soft);font-size:12px;line-height:1.65;margin:10px 0 0}.notice{padding:11px 13px;background:#303127;border-left:3px solid var(--gold);border-radius:5px;margin:14px 0 0;font-size:13px}.notice.good{background:#24332f;border-color:#9dc3ae}.notice.warn{background:#35302a;border-color:#6bbaff}a{color:var(--gold)}details{margin-top:15px}summary{cursor:pointer;color:var(--gold);font-weight:650}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:15px}.stat{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:13px 16px}.stat b{display:block;color:var(--gold);font-size:clamp(18px,2.2vw,26px);line-height:1.35;font-variant-numeric:tabular-nums}.stat small{display:block;color:var(--soft);font-size:11px;margin-top:3px}.key{display:flex;flex-wrap:wrap;gap:4px}.key span{background:#283337;padding:6px 0;border-radius:5px;min-width:28px;flex:1;text-align:center;color:var(--gold);font-size:15px}.key em{display:block;font-style:normal;color:var(--soft);font-size:10px}.panel h2{font-size:19px;margin:0 0 8px}.chart{width:100%;height:325px;display:block;cursor:crosshair;touch-action:pan-y}.timeline-chart{height:380px;cursor:crosshair}.timeline-wrap{position:relative}.timeline-tooltip{position:absolute;z-index:2;pointer-events:none;max-width:320px;padding:8px 11px;border:1px solid #718080;background:#10191eeF;color:#e9ebe3;border-radius:7px;box-shadow:0 4px 20px #0008;font-size:12px;line-height:1.5;display:none;overflow-wrap:anywhere}.timeline-tooltip strong{color:#85d7fc}.chart-caption{display:flex;justify-content:space-between;color:var(--soft);font-size:11px}.results-list{margin-top:14px;max-height:590px;overflow:auto}.result{display:grid;grid-template-columns:minmax(92px,145px) minmax(0,1fr) 65px;gap:14px;padding:12px 4px;border-top:1px solid var(--line);align-items:baseline}.ref{color:var(--soft);font-size:12px}.verse{font:17px/1.5 Georgia,serif}.number{text-align:right;font-weight:750;color:var(--gold);font-variant-numeric:tabular-nums}.small{font-size:12px;color:var(--soft)}.endrow{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.empty{padding:24px 5px;color:var(--soft)}textarea{width:100%;min-height:108px;margin-top:8px;resize:vertical}footer{color:var(--soft);font-size:12px} @media(max-width:700px){main{padding:14px 12px 55px}.panel{padding:14px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.result{grid-template-columns:77px 1fr 44px;gap:8px}.verse{font-size:15px}.chart{height:255px}}
+
+body.compare-mode main > :not(.visibility-strip):not(.compare-workspace){display:none}
+.compare-workspace[hidden]{display:none!important}.comparison-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
+.compare-card{margin:0;min-width:0}.compare-card .fields{gap:8px}.compare-card .field{min-width:115px}.compare-card h3{font-size:16px;margin:0 0 8px;color:var(--gold)}
+.compare-chart{width:100%;height:230px;display:block;cursor:crosshair}.compare-hist{height:140px}.compare-stat-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.compare-stat-row span{background:#29363a;padding:5px 8px;border-radius:5px;color:var(--soft);font-size:11px}
+.compare-card .timeline-wrap{margin:8px 0}.compare-info{min-height:45px;color:var(--soft);font-size:11px}.compare-hits{max-height:200px;overflow:auto;font-size:12px}.compare-hit{display:flex;gap:10px;border-top:1px solid var(--line);padding:5px 0}.compare-hit b{flex:none;color:var(--gold)}
+@media(max-width:960px){.comparison-grid{grid-template-columns:1fr}}@media(min-width:1400px){body.compare-mode main{max-width:1700px}}
+
+/* Cyber-gothic 1998 terminal skin; no remote fonts or images. */
+:root{color-scheme:dark;--bg:#090b0b;--surface:#141615;--line:#49433a;--fg:#d7ccad;--soft:#a09783;--gold:#45bcff;--gold2:#267ac4;--blood:#285cc6;--ember:#71d4fd}
+html{scroll-behavior:smooth}body{background:radial-gradient(ellipse at 50% -12%,#3a201b 0,transparent 38%),repeating-linear-gradient(90deg,#090a0b 0,#090a0b 3px,#0c0e0e 4px,#0c0e0e 5px);color:var(--fg);font:13px/1.52 'Trebuchet MS',Verdana,Arial,sans-serif;letter-spacing:.015em}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;background:repeating-linear-gradient(0deg,transparent 0,transparent 3px,rgba(0,0,0,.07) 4px);opacity:.55}
+header{padding:14px max(20px,calc((100vw - 1450px)/2)) 16px;background:radial-gradient(ellipse at 50% 14%,#392521 0,#191a1a 55%,#0b0c0c 100%);border-bottom:3px double #476c88;box-shadow:inset 0 -12px 22px #090808,0 6px 20px #000b;position:relative}
+header::before,header::after{content:"❧";position:absolute;top:64px;font:42px Georgia,serif;color:#5b9dce;opacity:.7}header::before{left:4%}header::after{right:4%;transform:scaleX(-1)}
+.mast-top,.mast-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;font:10px/1.4 'Courier New',monospace;letter-spacing:.19em;color:#8b7250}
+.mast-top{border-bottom:1px solid #493627;padding-bottom:8px}.mast-bottom{border-top:1px solid #493627;padding-top:9px}
+.mast-center{display:flex;justify-content:center;align-items:center;gap:23px;padding:27px 0 20px;text-align:left}.seal{font:76px/1 Georgia,serif;color:#468fcd;text-shadow:0 0 17px #155bad55,0 2px 2px #000;filter:drop-shadow(0 0 4px #337fba)}.mast-label{font:10px/1.2 'Courier New',monospace;color:#6dcaf2;letter-spacing:.2em}
+h1{font:small-caps bold clamp(30px,4.4vw,60px)/1.15 Georgia,'Times New Roman',serif;letter-spacing:.055em;color:#ead8ab;text-shadow:0 2px 0 #28190f,0 0 19px #155bad55;margin:4px 0 1px}.mast-split{color:#308ce0;font-weight:normal}header p{font:10px 'Courier New',monospace;letter-spacing:.12em;color:#977c60}
+main{max-width:1490px;padding-top:22px}.panel,.stat{border-radius:0;border:1px solid #584637;background:linear-gradient(155deg,#1a1d1d,#111313 60%,#171615);box-shadow:inset 0 1px #8b6b4638,inset 0 0 0 3px #080b0b,0 4px 12px #0009;position:relative}.panel{padding:22px}.panel::before{content:"";position:absolute;pointer-events:none;inset:6px;border:1px solid #513b2c38}.panel h2,.compare-card h3{font-family:Georgia,serif;font-variant:small-caps;letter-spacing:.04em;color:#88d7ff}
+.eyebrow{font:700 11px 'Courier New',monospace;color:#4cbbeb;letter-spacing:.16em;border-bottom:1px solid #4d342c;padding-bottom:9px}.field label, label{font:700 11px 'Courier New',monospace;text-transform:uppercase;letter-spacing:.065em;color:#ab9981}
+input,select,button,textarea{font:13px 'Courier New',monospace;border-radius:0;background:linear-gradient(#090b0b,#141616);border:1px solid #6a5743;color:#ebd6a6;box-shadow:inset 2px 2px 4px #000a;min-height:40px}select:focus,input:focus,button:focus-visible{outline:1px solid #60d1ff;outline-offset:2px}
+button{background:linear-gradient(#3c342c,#231e1a);border:1px solid #856540;color:#9addff;box-shadow:inset 0 1px #ac81513d,0 2px 3px #000b;text-transform:uppercase;letter-spacing:.045em}button:hover{background:linear-gradient(#1a3f65,#2d1e1a);border-color:#5dbffa;color:#fff0cb}button.primary{color:#f6da9e;background:linear-gradient(#173e68,#0d2441);border-color:#388ddb;text-shadow:0 1px #220c08}button.primary:hover{color:white;background:linear-gradient(#224e79,#192d52)}
+.notice,.notice.good,.notice.warn{border-radius:0;background:#171b18;color:#aecce4;border-left:3px solid #8f6944;font-family:'Courier New',monospace}.notice.good{border-left-color:#8b9d6e}.notice.warn{border-left-color:#3575c1;background:#241a18}.subtle,.small,.ref,.chart-caption,.compare-info{color:#a69986}.stat{border-color:#514237}.stat b,.number{color:#8ad8ff;font-family:'Courier New',monospace;text-shadow:0 0 9px #2596f733}.stat small{font-family:'Courier New',monospace;letter-spacing:.045em;text-transform:uppercase}.key span{border-radius:0;background:#23231f;border:1px solid #594b34;color:#7dceff}.key em{color:#8a8575}.results-list{border-top:1px solid #604a36}.result{border-top:1px dashed #4e4032}.verse{color:#e0d4b8;font-family:Georgia,'Times New Roman',serif}.timeline-tooltip{background:#111313f5;border-radius:0;border:1px solid #946f48;color:#e5d1af}.timeline-tooltip strong{color:#9be6ff}.compare-stat-row span{border-radius:0;border:1px solid #514032;background:#20201d;color:#d0b58b;font-family:'Courier New',monospace}a{color:#79d0ff}a:hover{color:#b5edff}
+.chart,.compare-chart{background:linear-gradient(#101616,#0c1010);border:1px solid #51463a}.compare-card h3{border-bottom:1px solid #4f382d;padding-bottom:6px}.compare-card .fields{gap:9px}
+@media(max-width:700px){header::before,header::after{display:none}.mast-center{gap:9px;justify-content:flex-start}.seal{font-size:46px}.mast-top,.mast-bottom{font-size:8px;letter-spacing:.02em}.panel{padding:16px}h1{font-size:clamp(27px,7vw,45px)}}
+
+/* 1997 / ARCHIVE TERMINAL — structural layout, rather than a recolored dashboard */
+:root{--bg:#0b0d0d;--surface:#141717;--line:#404945;--fg:#dfdfd1;--soft:#8d9a92;--gold:#9bcff4;--gold2:#6eacd8;--accent:#398fe4}
+html{background:#0b0d0d}body{background:#0b0d0d;color:var(--fg);font:13px/1.45 'Courier New',monospace;letter-spacing:0}body::before{display:none}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.16;background:repeating-linear-gradient(0deg,transparent 0 7px,#71807612 8px 9px),linear-gradient(90deg,#252d29 1px,transparent 1px);background-size:auto,38px 38px}
+header{max-width:none;padding:28px max(26px,calc((100vw - 1610px)/2));display:flex;align-items:end;justify-content:space-between;gap:30px;background:#0e1212;border-bottom:1px solid #637168;box-shadow:none}
+header::before,header::after{display:none!important}.brand-kicker{font:10px/1.6 'Courier New',monospace;letter-spacing:.2em;color:#a9b0a6}.brand-kicker span{color:#6d7770}
+h1{font:900 clamp(34px,5vw,74px)/.98 Impact,'Arial Narrow',sans-serif;letter-spacing:.045em;color:#e0e5d6;text-shadow:none;margin:4px 0 0;font-variant:normal}.brand-divider{color:#328de2;padding:0 .18em;font-weight:400}.header-index{font:11px 'Courier New',monospace;letter-spacing:.16em;color:#839187;white-space:nowrap;padding-bottom:5px}.header-index b{color:#cdd3b6;font-size:19px}.header-index span{display:block;text-align:right;font-size:9px;color:#647269;margin-top:8px}
+main{max-width:1660px;padding:18px 26px 70px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;align-items:start}
+main>.compare-toolbar{grid-column:1/-1}main>.panel{margin:0;min-width:0}main>.corpus-panel{grid-column:1/9}main>.cipher-panel{grid-column:9/-1}main>.stats{grid-column:1/-1}main>.histogram-panel{grid-column:1/6}main>.search-panel{grid-column:6/-1}main>#timelinePanel{grid-column:1/-1}
+.panel,.stat{border:1px solid #3c4b44;border-radius:0;background:#141919;box-shadow:none}.panel{padding:19px 20px}.panel::before,.panel::after,.stat::before{display:none!important}
+.compare-toolbar{padding:8px 12px!important;background:#101616;border-top:2px solid #a7b29a}.compare-toolbar .endrow{justify-content:space-between}.workspace-heading{font-size:11px;letter-spacing:.2em;color:#9ba69d}.workspace-heading span{color:#398fe4}
+.eyebrow{font:700 11px 'Courier New',monospace;letter-spacing:.13em;color:#bec6ac;border:0;margin:0 0 14px;padding:0}.eyebrow::before{content:"";display:inline-block;width:13px;height:2px;margin:0 9px 4px 0;background:#39a9ed}
+.panel h2,.compare-card h3{font:800 22px/1.1 Impact,'Arial Narrow',sans-serif;font-variant:normal;text-transform:uppercase;letter-spacing:.055em;color:#d4d9c9;margin-bottom:16px}
+.field label,label{font:10px 'Courier New',monospace;letter-spacing:.06em;color:#aab5ac;text-transform:uppercase}
+.fields{gap:9px;align-items:end}.field{min-width:112px;gap:5px}
+input,select,button,textarea{font:12px 'Courier New',monospace;border-radius:0;min-height:34px;padding:8px 10px;color:#dfe3d6;background:#090e0e;border:1px solid #53665b;box-shadow:none}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:1px solid #c1cbaa;outline-offset:1px}
+button,button.primary{background:#1d2826;color:#d8e0d0;border:1px solid #6b8172;text-shadow:none;box-shadow:none;font-size:11px;letter-spacing:.07em}button:hover,button.primary:hover{background:#35413a;border-color:#c4d0bd;color:#fff}
+.stats{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:0;margin:0}.stat{min-width:0;padding:13px 12px;border-right:0;background:#101515}.stat:last-child{border-right:1px solid #3c4b44}.stat b{font:700 clamp(16px,1.65vw,26px)/1.4 'Courier New',monospace;color:#b7e4ff;text-shadow:none;overflow-wrap:anywhere}.stat small{font:10px/1.35 'Courier New',monospace;letter-spacing:0;color:#8b9b92;text-transform:uppercase}
+.key{gap:0;display:grid;grid-template-columns:repeat(13,minmax(0,1fr));border-left:1px solid #37433e;border-top:1px solid #37433e}.key span{min-width:0;flex:auto;padding:6px 2px;border:0;border-right:1px solid #37433e;border-bottom:1px solid #37433e;background:#121d1a;color:#d1d8bd;font:12px 'Courier New',monospace}.key em{font:9px 'Courier New',monospace;color:#84988a;margin-top:3px}
+.chart{height:365px;cursor:crosshair}.timeline-chart{height:390px}.timeline-tooltip{border-radius:0;background:#111b19f7;border-color:#758776;color:#dce5d4}.timeline-tooltip strong{color:#d8deb7}.small,.ref,.chart-caption,.compare-info{color:#82948a}.chart-caption{margin-top:7px}
+.results-list{max-height:445px;border-top:1px solid #3c4944}.result{padding:12px 2px;grid-template-columns:minmax(70px,110px) minmax(0,1fr) 66px;gap:12px}.verse{font:16px/1.48 Georgia,serif;color:#d9decf}.number{font:700 14px 'Courier New',monospace;color:#91d5ff;text-shadow:none}.ref{font-size:10px}.notice{font:11px/1.45 'Courier New',monospace;background:#251a18;color:#deb7ae;border-left:2px solid #398ee3;margin-top:12px;padding:9px}.notice[hidden],[hidden]{display:none!important}
+#source,#cipherInfo,#cipherStatus,#chartNote,#timelineNote{display:none!important}.subtle{display:none}.empty{color:#81958a}.compare-workspace{grid-column:1/-1}.comparison-grid{gap:10px}.compare-card h3{font-size:17px}.compare-stat-row span{background:#1c2622;border:1px solid #394940;border-radius:0}.compare-info{min-height:0}.compare-hit b{color:#91d5ff}
+body.compare-mode main>.compare-workspace{display:block}body.compare-mode main> :not(.visibility-strip):not(.compare-workspace){display:none}
+@media(max-width:1200px){main>.corpus-panel{grid-column:1/8}main>.cipher-panel{grid-column:8/-1}.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.stat:nth-child(4){border-right:1px solid #3c4b44}}
+@media(max-width:900px){main>.corpus-panel,main>.cipher-panel,main>.histogram-panel,main>.search-panel{grid-column:1/-1}.key{grid-template-columns:repeat(9,minmax(0,1fr))}header{align-items:start}.header-index{display:none}.comparison-grid{grid-template-columns:1fr}}
+@media(max-width:600px){main{padding:10px 10px 50px;gap:9px}header{padding:19px 14px}.panel{padding:14px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat{border-right:1px solid #3c4b44}.key{grid-template-columns:repeat(7,minmax(0,1fr))}.chart{height:275px}.timeline-chart{height:315px}}
+
+/* aligned analysis rows */
+main{align-items:stretch}
+main>.corpus-panel,main>.cipher-panel,main>.histogram-panel,main>.search-panel{align-self:stretch}
+.histogram-panel,.search-panel{display:flex;flex-direction:column;height:610px;min-height:0}
+.histogram-panel #chart{flex:1 1 auto;height:auto;min-height:360px}
+.search-panel #results{flex:1 1 auto;max-height:none;min-height:300px;overflow:auto}
+/* controls are lightweight, not dashboard panels */
+.visibility-strip{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:10px 20px;background:#101616;border:1px solid #35443f;border-left:3px solid #a4b5a3;padding:10px 14px;font:11px 'Courier New',monospace;color:#a4b7ad;letter-spacing:.08em}
+.visibility-strip>span{color:#e3e7d9;font-weight:bold;letter-spacing:.17em}
+.visibility-strip label{display:inline-flex;align-items:center;gap:6px;font:inherit;color:#b8c7bd;cursor:pointer;white-space:nowrap}
+.visibility-strip input{min-height:0;width:14px;height:14px;accent-color:#b9cba9;margin:0}
+main>[data-section-hide="true"]{display:none!important}
+body.compare-mode .visibility-strip{display:flex!important}
+body.compare-mode .visibility-strip [data-visible="corpus"],body.compare-mode .visibility-strip [data-visible="cipher"]{opacity:.45}
+body.compare-mode .visibility-strip label:has([data-visible="corpus"]),body.compare-mode .visibility-strip label:has([data-visible="cipher"]){display:none}
+/* comparison cards and large add action */
+.comparison-grid{align-items:stretch}
+.compare-card{display:flex;flex-direction:column;min-height:450px}
+.compare-card .compare-hits{flex:1 1 auto}
+.compare-card .compare-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.compare-card .compare-card-top h3{margin-bottom:9px}
+.compare-remove{min-height:30px;padding:3px 10px;font-size:11px}
+.compare-add{min-height:450px;border:1px dashed #819184;background:repeating-linear-gradient(0deg,#111918,#111918 25px,#18221e 26px);color:#c6d4c0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:background .15s,border-color .15s}
+.compare-add:hover{background:#1c2925;border-color:#d2dfbe}
+.compare-add .plus{font:200 100px/1 Arial,sans-serif;letter-spacing:0}
+.compare-add .plus-label{font:12px 'Courier New',monospace;letter-spacing:.2em}
+.compare-card [data-part="hist"][hidden],.compare-card [data-part="timeline"][hidden],.compare-card [data-part="stats"][hidden]{display:none!important}
+@media(max-width:900px){.histogram-panel,.search-panel{height:auto;min-height:0}.histogram-panel #chart{height:330px;flex:none}.search-panel #results{max-height:480px;flex:none}.compare-add{min-height:210px}}
+
+/* top-level pages */
+.site-tabs{display:grid;grid-template-columns:1fr 1fr;gap:0;width:100%;padding:0!important;margin:0;background:#0c1111!important;border:0;border-bottom:1px solid #48584f;box-shadow:none!important;position:relative}
+.site-tabs .site-tab{min-width:0;min-height:92px;padding:20px 28px;border:0;border-right:1px solid #3c4b44;border-bottom:4px solid transparent;background:#0d1212;color:#809086;text-align:left;font:900 clamp(23px,3.1vw,51px)/1 Impact,'Arial Narrow',sans-serif;letter-spacing:.065em;transition:color .15s,background .15s,border-color .15s}
+.site-tabs .site-tab:nth-child(2){border-right:0;padding-left:clamp(22px,4vw,64px)}
+.site-tabs .site-tab:hover{background:#1a2320;color:#d9e2d3}
+.site-tabs .site-tab.active{color:#ecf0e2;background:linear-gradient(140deg,#1b2621,#111916);border-bottom-color:#70bdf8}
+.site-tabs .brand-divider{color:#40b7f7}
+.site-tabs .site-tab:focus-visible{outline:2px solid #dce4cf;outline-offset:-7px}
+body.intro-mode main{display:none!important}
+.intro-view{max-width:1170px;margin:0 auto;padding:clamp(30px,6vw,78px) clamp(20px,5vw,70px) 120px}
+.intro-content{max-width:900px;font:18px/1.85 Georgia,'Times New Roman',serif;color:#cdd5c8}
+.intro-content h1,.intro-content h2,.intro-content h3{font-family:Impact,'Arial Narrow',sans-serif;letter-spacing:.07em;text-transform:uppercase;font-variant:normal;color:#e5e9d8;margin:1.7em 0 .5em;line-height:1.2}
+.intro-content h1{font-size:clamp(43px,6.5vw,86px);margin:0 0 .55em;border-bottom:1px solid #66786a;padding-bottom:20px}
+.intro-content h2{font-size:32px}.intro-content h3{font-size:23px}
+.intro-content p{margin:0 0 1.4em;max-width:75ch}
+.intro-content blockquote{margin:2em 0;padding:.4em 0 .4em 25px;border-left:3px solid #879988;color:#adbdae;font-style:italic}
+.intro-content ul,.intro-content ol{padding-left:28px;margin:0 0 1.5em}.intro-content li{margin-bottom:.4em}
+.intro-content strong{color:#edf1de}.intro-content a{color:#90d6fa;text-underline-offset:4px}
+.intro-content code{font:14px 'Courier New',monospace;color:#96e0ff;background:#1e2923;padding:2px 5px}
+.intro-content hr{border:0;border-top:1px solid #516057;margin:35px 0}
+/* enlarged and breathable text selection */
+main{gap:14px;padding-top:20px}
+main>.corpus-panel{grid-column:1/10}
+main>.cipher-panel{grid-column:10/-1}
+.corpus-panel .fields{display:grid;grid-template-columns:minmax(220px,2.2fr) minmax(120px,1fr) minmax(180px,1.7fr) minmax(115px,1fr);gap:14px;align-items:end}
+.corpus-panel .field{min-width:0;flex:unset}
+.corpus-panel .field label{margin-bottom:4px}
+.corpus-panel select{min-height:48px;width:100%;font-size:13px;padding:10px 12px}
+.corpus-panel #reloadTexts{margin-top:15px;min-height:36px;padding:8px 16px}
+.cipher-panel select{min-height:43px;width:100%;font-size:13px}
+.corpus-panel,.cipher-panel{padding:24px 26px}
+main>.histogram-panel{grid-column:1/6}
+main>.search-panel{grid-column:6/-1}
+@media(max-width:1200px){main>.corpus-panel{grid-column:1/9}main>.cipher-panel{grid-column:9/-1}.corpus-panel .fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(max-width:900px){main>.corpus-panel,main>.cipher-panel{grid-column:1/-1}.corpus-panel .fields{grid-template-columns:repeat(2,minmax(0,1fr))}.site-tabs .site-tab{min-height:80px}}
+@media(max-width:550px){.site-tabs .site-tab{min-height:66px;font-size:clamp(17px,5vw,27px);padding:12px!important}.corpus-panel .fields{grid-template-columns:1fr}.corpus-panel,.cipher-panel{padding:17px}.intro-content{font-size:16px}}
+
+/* rounded surfaces and controls */
+.panel,.stat,.compare-card,.compare-add,.compare-workspace>.panel{border-radius:14px!important;overflow:hidden}
+input:not([type=checkbox]),select,button,textarea,.key span,.notice,.timeline-tooltip,.compare-stat-row span{border-radius:9px!important}
+.site-tabs .site-tab{border-radius:0!important}
+.compare-remove,.compare-toggle,.visibility-strip label{border-radius:8px!important}
+#maxField[hidden]{display:none!important}
+
+/* Prominent right-aligned single/compare control */
+.compare-toolbar{padding:12px 18px!important}
+.compare-toolbar .view-mode-row{display:flex;align-items:center;justify-content:flex-end;gap:18px;width:100%;min-height:48px}
+.compare-toolbar .workspace-heading{font-size:12px;letter-spacing:.15em;font-weight:700;color:#c6d3c6}
+.view-mode-buttons{display:flex;gap:8px;align-items:stretch}
+.view-mode-buttons button{min-width:145px;min-height:44px;padding:10px 22px;font-size:13px;letter-spacing:.1em;font-weight:700;border:1px solid #73877b;transition:background .15s,border-color .15s}
+.view-mode-buttons button:hover{border-color:#cad7c4;background:#24352d}
+.view-mode-buttons button.primary{border-color:#c1d0ad}
+@media(max-width:550px){.compare-toolbar .view-mode-row{gap:10px}.view-mode-buttons button{min-width:105px;padding:9px 12px;font-size:12px}}
+
+/* Unified view + visibility toolbar */
+main>.visibility-strip{grid-column:1/-1;display:flex;align-items:center;justify-content:flex-start;gap:12px 20px;flex-wrap:wrap;padding:12px 16px;border-radius:12px!important}
+.visibility-strip .view-mode-row{display:flex;align-items:center;gap:12px;flex:0 0 auto;margin-right:9px}
+.visibility-strip .workspace-heading,.visibility-strip .show-heading{font:700 11px 'Courier New',monospace;letter-spacing:.13em;color:#e3e7d9}
+.visibility-strip .show-heading{padding-left:18px;border-left:1px solid #56695d;align-self:stretch;display:flex;align-items:center}
+.visibility-strip .view-mode-buttons{display:flex;align-items:center;gap:6px}
+.visibility-strip .view-mode-buttons button{min-width:112px;min-height:38px;padding:8px 15px;font-size:12px;letter-spacing:.08em}
+@media(max-width:720px){.visibility-strip .view-mode-row{width:100%}.visibility-strip .show-heading{border-left:0;padding-left:0}.visibility-strip .view-mode-buttons button{min-width:92px}}
+
+/* Cold diode-blue accent system: charts, numbers, headings, focus and controls. */
+:root{--gold:#55c5ff;--gold2:#2087d9;--accent:#45baff;--ember:#91e7ff;--blood:#377bd2}
+.stat b,.stat .number,.number,.compare-hit b,.compare-stat-row strong{color:#8bdcff!important;text-shadow:none!important}
+.key span{color:#7bd1ff!important;border-color:#375a76}
+.eyebrow::before{background:#45bcff!important}
+.site-tabs .site-tab.active{border-bottom-color:#45bcff!important}
+.visibility-strip{border-left-color:#45bcff!important}
+.visibility-strip input[type=checkbox]{accent-color:#50bfff!important}
+.view-mode-buttons button.primary,.view-mode-buttons button.primary:hover{border-color:#5bc9ff!important;background:#173a59!important;color:#d9f5ff!important}
+button:focus-visible, input:focus-visible,select:focus-visible{outline-color:#6bd5ff!important}
+.timeline-tooltip strong,.intro-content a{color:#94e7ff!important}
+
+/* Expected cipher value: wider cipher, compact two-by-two text selections. */
+@media(min-width:901px){
+ main>.corpus-panel{grid-column:1/6}
+ main>.cipher-panel{grid-column:6/-1}
+ .corpus-panel .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:end}
+ .corpus-panel .field{min-width:0}
+}
+.cipher-panel .fields{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:15px}
+.cipher-panel .field{min-width:0}
+.cipher-expectation{min-width:152px;padding:6px 0 1px;text-align:right}
+.cipher-expectation small{display:block;color:var(--soft);font:10px 'Courier New',monospace;letter-spacing:.04em;text-transform:uppercase}
+.cipher-expectation b{display:block;margin-top:3px;color:#8bdcff;font:700 26px 'Courier New',monospace;font-variant-numeric:tabular-nums}
+main>.stats{grid-template-columns:repeat(10,minmax(0,1fr))}
+@media(max-width:1450px){main>.stats{grid-template-columns:repeat(5,minmax(0,1fr))}.stat:nth-child(5){border-right:1px solid #3c4b44}}
+@media(max-width:900px){main>.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cipher-panel .fields{grid-template-columns:minmax(0,1fr) auto}}
+@media(max-width:480px){.cipher-panel .fields{grid-template-columns:1fr}.cipher-expectation{text-align:left}}
+
+.intro-table-scroll{max-width:100%;overflow-x:auto;margin:1.2em 0 2em}
+.intro-content table{border-collapse:collapse;width:100%;font:15px/1.55 'Courier New',monospace;color:#d8e6d8}
+.intro-content th,.intro-content td{padding:7px 14px;border-bottom:1px solid #43594d}
+.intro-content th{background:#1e3029;color:#b8e7df;font-weight:bold;border-bottom:2px solid #678477}
+.intro-content tbody tr:nth-child(even){background:rgba(120,190,160,.045)}
+#shareAnalysis{margin-left:auto;min-height:38px;padding:8px 14px;border-color:#4788ac;color:#a3dffc;white-space:nowrap}
+#shareAnalysis:hover{border-color:#8ad8ff}
+@media(max-width:720px){#shareAnalysis{margin-left:0}}
+/* Emphasize search match totals in SINGLE and COMPARE modes. */
+#matches, .compare-card [data-role="match-count"] {
+  display: inline-block;
+  color: #80d4ff !important;
+  font: 800 18px/1.25 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+  text-shadow: 0 0 12px rgba(54, 167, 255, .20);
+}
+</style></head><body>
+<header class="site-tabs" role="navigation" aria-label="Main navigation"><button id="navIntro" class="site-tab" type="button">INTRO</button><button id="navExplorer" class="site-tab active" type="button" aria-current="page">EXPLORER</button></header>
+<section id="introView" class="intro-view" hidden><article id="introContent" class="intro-content" aria-live="polite"></article></section>
+<main><section class="visibility-strip" aria-label="View mode and visible sections"><div class="view-mode-row"><span class="workspace-heading">VIEW</span><div class="view-mode-buttons" role="group" aria-label="View mode"><button id="modeSingle" class="primary" type="button">SINGLE</button><button id="modeCompare" type="button">COMPARE</button></div></div><button id="shareAnalysis" type="button" title="Copy a link that opens this analysis">SHARE ANALYSIS</button><span class="show-heading">SHOW</span><label><input type="checkbox" data-visible="corpus" checked> TEXT</label><label><input type="checkbox" data-visible="cipher" checked> CIPHER</label><label><input type="checkbox" data-visible="stats" checked> STATS</label><label><input type="checkbox" data-visible="hist" checked> HISTOGRAM</label><label><input type="checkbox" data-visible="search" checked> SEARCH</label><label><input type="checkbox" data-visible="timeline" checked> SEQUENCE</label></section>
+<section id="compareWorkspace" class="compare-workspace" hidden><section class="panel" id="compareSearchPanel"><div class="eyebrow">SEARCH / ALL COMPARED TEXTS</div><div class="fields"><div class="field"><label for="compareValueMode">Value filter</label><select id="compareValueMode"><option value="single">Single value</option><option value="range">Value range</option></select></div><div class="field"><label for="compareMin" id="compareMinLabel">Exact value</label><input id="compareMin" type="number" step="1" placeholder="Any"></div><div class="field" id="compareMaxField" hidden><label for="compareMax">Maximum value</label><input id="compareMax" type="number" step="1" placeholder="Any"></div><div class="field grow"><label for="compareQuery">Text search</label><input id="compareQuery" type="search" placeholder="Search all compared texts…"></div><button id="compareClear" type="button">Clear</button></div></section><div id="compareCards" class="comparison-grid"></div></section>
+<section class="panel corpus-panel"><div class="eyebrow">01  /  TEXT</div><div class="fields"><div class="field grow"><label for="corpus">Collection</label><select id="corpus"></select></div><div class="field"><label for="translation">Translation</label><select id="translation"></select></div><div class="field"><label for="unit">Unit</label><select id="unit"><option value="verse">Verse</option><option value="sentence">Sentence</option><option value="word">Word</option></select></div><div class="field grow"><label for="section">Section</label><select id="section"><option value="all">All books</option></select></div><div class="field"><label for="chapter">Chapter</label><select id="chapter"><option value="all">All chapters</option></select></div></div>
+<div id="status" class="notice" role="status" hidden></div>
+<p class="subtle" id="source" hidden></p>
+<button id="reloadTexts">Reload</button></section>
+<section class="panel cipher-panel"><div class="eyebrow">02  /  CIPHER</div><div class="fields"><div class="field grow"><label for="cipher">Cipher</label><select id="cipher"></select></div><div class="cipher-expectation" title="Frequency-weighted expected value per English alphabetic character; digits excluded"><small>Expected char value (E)</small><b id="cipherExpected">—</b></div></div><p id="cipherStatus" class="notice good" hidden></p><div id="key" class="key" style="margin-top:13px"></div><p class="subtle" id="cipherInfo" hidden></p></section>
+<section class="stats"><div class="stat"><b id="sCount">—</b><small>Units</small></div><div class="stat"><b id="sMeanVal">—</b><small>Mean value</small></div><div class="stat"><b id="sMedianVal">—</b><small>Median</small></div><div class="stat"><b id="sMode">—</b><small>Mode</small></div><div class="stat"><b id="sWords">—</b><small>Words / unit</small></div><div class="stat"><b id="sChars">—</b><small>Chars / unit</small></div><div class="stat"><b id="sRange">—</b><small>Value range</small></div><div class="stat"><b id="sStdev">—</b><small>Std deviation</small></div><div class="stat"><b id="sExpectedMean">—</b><small>Expected mean (chars × E)</small></div><div class="stat"><b id="sMeanDeviation">—</b><small>Mean deviation (actual − expected)</small></div></section>
+<section class="panel histogram-panel"><div class="eyebrow">03  /  DISTRIBUTION</div><div class="endrow"><div><h2>Histogram</h2></div><div class="field" style="max-width:180px"><label for="bin">Bins</label><select id="bin"><option value="auto">Automatic</option><option value="1">1 — exact values</option><option value="5">5</option><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select></div></div><canvas class="chart" id="chart" aria-label="Histogram of Qabbala sums"></canvas><p id="chartNote" class="small" hidden></p></section>
+<section class="panel search-panel"><div class="eyebrow">04  /  SEARCH</div><div class="fields"><div class="field"><label for="valueMode">Value filter</label><select id="valueMode"><option value="single">Single value</option><option value="range">Value range</option></select></div><div class="field"><label for="min" id="minLabel">Exact value</label><input id="min" type="number" step="1" placeholder="Any"></div><div class="field" id="maxField" hidden><label for="max">Maximum value</label><input id="max" type="number" step="1" placeholder="Any"></div><div class="field grow"><label for="query">Text search</label><input id="query" type="search" placeholder="e.g. light, Satan, angel…"></div><button id="clear">Clear</button></div><div class="endrow" style="margin-top:19px"><h2 id="resultsHeading">Matches</h2><div class="fields"><span id="matches" class="small">—</span><button id="export">Export CSV</button></div></div><div id="results" class="results-list"></div><div class="endrow"><span id="shown" class="small"></span><button id="more" style="display:none">Show 100 more</button></div></section>
+
+<section class="panel" id="timelinePanel"><div class="eyebrow">05  /  SEQUENCE</div><h2>Chronological values</h2><div class="fields" style="margin:13px 0"><div class="field"><label for="xStart">X start</label><input type="number" id="xStart" min="1" step="1" placeholder="1"></div><div class="field"><label for="xEnd">X end</label><input type="number" id="xEnd" min="1" step="1" placeholder="All"></div><div class="field"><label for="yStart">Y min</label><input type="number" id="yStart" step="any" placeholder="Auto"></div><div class="field"><label for="yEnd">Y max</label><input type="number" id="yEnd" step="any" placeholder="Auto"></div><button id="resetZoom">Reset</button></div><p id="zoomError" class="small" role="status"></p><div class="timeline-wrap"><canvas id="timeline" class="chart timeline-chart" aria-label="Line graph of gematric values in chronological text order"></canvas><div id="timelineTooltip" class="timeline-tooltip"></div></div><p id="timelineNote" class="small" hidden></p></section>
+</main><script src="compat.js"></script>
+<script src="ciphers.js"></script>
+<script src="normalization.js"></script>
+<script>
+'use strict';
+const $=id=>document.getElementById(id),ABC='0123456789abcdefghijklmnopqrstuvwxyz',ROM='I II III IV V VI VII VIII IX X XI XII'.split(' ');
+const SOURCE={milton:'1667 · Bibliotheca Augustana transcription; verse lines only.',milton_1674:'1674 · Oxford Text Archive transcription; verse lines only.',milton_modern:'Modernized twelve-book text (previously labeled 1674); verse lines only.',bible:'king_james_bible.txt · verse references are not included in sums.',tao:'Tao Te Ching · each translation is a separate collection; chapter labels excluded from sums.'};
+const CLASSICS=[{id:'iliad',name:'The Iliad — Samuel Butler · prose',file:'iliad.txt'},{id:'iliad_pope',name:'The Iliad — Alexander Pope · verse',file:'iliad_pope.txt'},{id:'iliad_cowper',name:'The Iliad — William Cowper · verse',file:'iliad_cowper.txt'},{id:'iliad_chapman',name:'The Iliad — George Chapman · verse',file:'iliad_chapman.txt'},{id:'odyssey',name:'The Odyssey — Samuel Butler · prose',file:'odyssey.txt'},{id:'odyssey_pope',name:'The Odyssey — Alexander Pope · verse',file:'odyssey_pope.txt'},{id:'odyssey_cowper',name:'The Odyssey — William Cowper · verse',file:'odyssey_cowper.txt'},{id:'odyssey_chapman',name:'The Odyssey — George Chapman · verse',file:'odyssey_chapman.txt'},{id:'blake',name:'The Marriage of Heaven and Hell — William Blake',file:'blake.txt'},{id:'dante',name:'The Divine Comedy — Longfellow',file:'dante.txt'},{id:'dante_cary',name:'The Divine Comedy — Henry Francis Cary',file:'dante_cary.txt'},{id:'book_of_the_law',name:'The Book of the Law — Aleister Crowley',file:'book_of_the_law.txt'},{id:'waste_land',name:'The Waste Land — T. S. Eliot',file:'waste_land_eliot.txt'},{id:'gilgamesh_thompson',name:'Gilgamesh — R. Campbell Thompson (1928)',file:'gilgamesh_thompson.txt'},{id:'gilgamesh_2026',name:'Gilgamesh — 2026 AI translation',file:'gilgamesh_2026_ai.txt'},{id:'beowulf_gummere',name:'Beowulf — Francis B. Gummere',file:'beowulf_gummere.txt'},{id:'beowulf_morris',name:'Beowulf — Morris / Wyatt',file:'beowulf_morris_wyatt.txt'},{id:'ovid_more',name:'Metamorphoses — Brookes More · verse',file:'ovid_metamorphoses_more.txt'},{id:'ovid_sandys',name:'Metamorphoses — George Sandys · verse (1632)',file:'ovid_metamorphoses_sandys.txt'},{id:'enneads_mackenna',name:'The Enneads — MacKenna / Page',file:'enneads_mackenna_page.txt'},{id:'aeneid_morris',name:'The Aeneid — William Morris · verse (1876)',file:'aeneid_morris.txt'},{id:'aeneid_taylor',name:'The Aeneid — Edward Fairfax Taylor · verse (1903)',file:'aeneid_taylor.txt'},{id:'enneads_guthrie',name:'The Enneads — Kenneth Sylvan Guthrie (1918)',file:'enneads_guthrie.txt'},{id:'hesiod_evelyn_white',name:'Theogony — Hugh G. Evelyn-White · prose',file:'hesiod_theogony_evelyn_white.txt'},{id:'hesiod_mair',name:'Theogony — A. W. Mair · prose',file:'hesiod_theogony_mair.txt'},{id:'hesiod_elton',name:'Theogony — Charles Abraham Elton · verse',file:'hesiod_theogony_elton.txt'}];
+const VERSE_CLASSICS=new Set(['dante','blake','dante_cary','ovid_more','hesiod_elton','book_of_the_law','ovid_sandys','waste_land','gilgamesh_thompson','gilgamesh_2026','beowulf_gummere','beowulf_morris','aeneid_morris','aeneid_taylor']);
+const BIBLE_EDITIONS=[{"id":"bible_kjv_1611","name":"Bible — King James Version (1611, original spelling)","file":"king_james_bible_1611.txt"},{"id": "bible_geneva", "name": "Bible — Geneva (1599)", "file": "bible_geneva.txt"}, {"id": "bible_douay_rheims", "name": "Bible — Douay–Rheims", "file": "bible_douay_rheims.txt"}, {"id": "bible_young", "name": "Bible — Young’s Literal Translation (1898)", "file": "bible_young.txt"}, {"id": "bible_asv", "name": "Bible — American Standard Version (1901)", "file": "bible_asv.txt"}, {"id": "bible_darby", "name": "Bible — Darby Translation", "file": "bible_darby.txt"}, {"id": "bible_web", "name": "Bible — World English Bible", "file": "bible_web.txt"}];
+// Translation groups are presentation-only; underlying source IDs and filenames do not change.
+const EDITION_GROUPS=[
+ {id:'bible',name:'Bible',items:[['bible','King James Version (standardized text)'],['bible_kjv_1611','King James Version (1611, original spelling)'],['bible_geneva','Geneva (1599)'],['bible_douay_rheims','Douay–Rheims'],['bible_young','Young’s Literal (1898)'],['bible_asv','American Standard (1901)'],['bible_darby','Darby'],['bible_web','World English Bible']]},
+ {id:'tao',name:'Tao Te Ching',dynamic:true},
+ {id:'milton',name:'Paradise Lost',items:[['milton','1667 — Bibliotheca Augustana'],['milton_1674','1674 — Oxford Text Archive'],['milton_modern','Modernized edition']]},
+ {id:'iliad',name:'The Iliad',items:[['iliad','Samuel Butler · prose'],['iliad_pope','Alexander Pope · verse'],['iliad_cowper','William Cowper · verse'],['iliad_chapman','George Chapman · verse']]},
+ {id:'odyssey',name:'The Odyssey',items:[['odyssey','Samuel Butler · prose'],['odyssey_pope','Alexander Pope · verse'],['odyssey_cowper','William Cowper · verse'],['odyssey_chapman','George Chapman · verse']]},
+ {id:'dante',name:'The Divine Comedy',items:[['dante','Longfellow'],['dante_cary','Henry Francis Cary']]},
+ {id:'ovid',name:'Metamorphoses',items:[['ovid_more','Brookes More (1922)'],['ovid_sandys','George Sandys (1632)']]},
+ {id:'gilgamesh',name:'The Epic of Gilgamesh',items:[['gilgamesh_thompson','R. Campbell Thompson (1928)'],['gilgamesh_2026','2026 AI translation']]},
+ {id:'beowulf',name:'Beowulf',items:[['beowulf_gummere','Francis B. Gummere'],['beowulf_morris','William Morris / A. J. Wyatt']]},
+ {id:'hesiod',name:'Theogony',items:[['hesiod_evelyn_white','H. G. Evelyn-White'],['hesiod_mair','A. W. Mair'],['hesiod_elton','Charles A. Elton']]},
+ {id:'aeneid',name:'The Aeneid',items:[['aeneid_morris','William Morris (1876)'],['aeneid_taylor','Edward Fairfax Taylor (1903)']]},
+ {id:'enneads',name:'The Enneads',items:[['enneads_mackenna','MacKenna / Page'],['enneads_guthrie','Kenneth Sylvan Guthrie (1918)']]},
+ {id:'blake',name:'The Marriage of Heaven and Hell',items:[['blake','']]},
+ {id:'book_of_the_law',name:'The Book of the Law',items:[['book_of_the_law','']]},
+ {id:'waste_land',name:'The Waste Land',items:[['waste_land','']]}
+];
+const TAO_KNOWN_FILES=[
+  {"file": "tao_01_1972_gia_fu_feng.txt", "name": "Gia-Fu Feng and Jane English (1972)"},
+  {"file": "tao_02_1988_stephen_mitchell.txt", "name": "Stephen Mitchell (1988)"},
+  {"file": "tao_03_1990_victor_h_mair.txt", "name": "Victor H. Mair (1990)"},
+  {"file": "tao_04_1993_addis_lombardo.txt", "name": "Stephen Addiss and Stanley Lombardo (1993)"},
+  {"file": "tao_05_1994_derek_lin.txt", "name": "Derek Lin (1994)"},
+  {"file": "tao_06_1996_j_h_mcdonald.txt", "name": "J. H. McDonald (1996)"},
+  {"file": "tao_07_2000_jim_clatfelter.txt", "name": "Jim Clatfelter (2000)"},
+  {"file": "tao_08_2002_david_hinton.txt", "name": "David Hinton (2002)"},
+  {"file": "tao_09_2004_ron_hogan.txt", "name": "Ron Hogan (2004)"},
+  {"file": "tao_10_2005_agnieszka_solska.txt", "name": "Agnieszka Solska (2005)"},
+  {"file": "tao_11_2009_ursula_k_le_guin.txt", "name": "Ursula K. Le Guin (2009 edition)"},
+];
+const taoEntries=new Map(TAO_KNOWN_FILES.map(t=>['tao:'+t.name,t]));
+const taoParsed=new Map();
+// Optional manifest supplements the built-in eleven translation names without
+// downloading their full texts. Static GitHub Pages does not expose directory listings.
+let taoCatalogPromise=null;
+function discoverTaoCatalog(){
+ if(taoCatalogPromise)return taoCatalogPromise;
+ taoCatalogPromise=(async()=>{
+  try{
+   const r=await fetch('./sources/tao_manifest.json?v=2026-11-26-v2');
+   if(!r.ok)return;
+   const doc=await r.json();let added=false;
+   for(const item of (Array.isArray(doc.translations)?doc.translations:[])){
+    const file=String(item.file||'');
+    if(!/^tao[a-zA-Z0-9_-]*\.txt$/i.test(file))continue;
+    if([...taoEntries.values()].some(x=>x.file===file))continue;
+    const name=taoDisplayName(item),id='tao:'+name;
+    if(taoEntries.has(id))continue;
+    taoEntries.set(id,{file,name});added=true;
+   }
+   if(added){updateCorpusOptions();window.dispatchEvent(new Event('qabbala:catalog-updated'));}
+  }catch(e){}
+ })();return taoCatalogPromise;
+}
+function collectionGroups(){return EDITION_GROUPS.map(g=>g.dynamic?{...g,items:[...taoEntries].map(([id,t])=>[id,t.name])}:g);}
+function taoSection(id){return taoParsed.get(id)||null;}
+function groupForDataset(id){return collectionGroups().find(g=>g.items.some(x=>x[0]===id))||EDITION_GROUPS[0];}
+function groupById(id){return collectionGroups().find(g=>g.id===id);}
+function defaultDataset(group){return group.items[0]?.[0]||null;}
+function tokenizeWords(s){return s.match(/[\p{L}\p{M}]+(?:['’ʼ-][\p{L}\p{M}]+)*/gu)||[];}
+const isBible=(id=state.dataset)=>id==='bible'||BIBLE_EDITIONS.some(x=>x.id===id);
+const state={texts:{milton:'',milton_1674:'',milton_modern:'',bible:'',tao:'',...Object.fromEntries(CLASSICS.map(x=>[x.id,''])),...Object.fromEntries(BIBLE_EDITIONS.map(x=>[x.id,'']))},dataset:'milton',unit:'verse',sections:[],records:[],filtered:[],bins:[],display:100,selected:-1};
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+const sourceCiphers=(typeof cipherList !== 'undefined' && Array.isArray(cipherList))?cipherList:[];
+const ciphers=sourceCiphers.map(c=>{
+  const map=Object.create(null);
+  c.cArr.forEach((ch,i)=>{
+    if(i>=c.vArr.length)return;
+    const key=typeof ch==='number'?String.fromCodePoint(ch):String(ch);
+    map[key]=c.vArr[i];
+  });
+  return {name:c.cipherName,category:c.cipherCategory||'Extra',map,
+    caseSensitive:!!c.caseSensitive,diacritics:!!c.diacriticsAsRegular,
+    numeric:c.vArr.every(v=>typeof v==='number' && Number.isFinite(v)),
+    ignoreDigits:!!c.ignoreDigits,h:c.H,s:c.S,l:c.L};
+});
+let selectedCipher=ciphers.some(c=>c.name==='Alphanumeric Qabbala')?'Alphanumeric Qabbala':(ciphers[0]?.name||'');
+if(!ciphers.length){$('cipherStatus').className='notice warn';$('cipherStatus').textContent='Could not load ciphers.js. Make sure compat.js and ciphers.js are next to index.html.';}
+else {$('cipherStatus').textContent=`${ciphers.length} ciphers loaded automatically from your original ciphers.js · ${new Set(ciphers.map(c=>c.category)).size} categories.`;}
+function currentCipher(){return ciphers.find(c=>c.name===selectedCipher)||ciphers[0]||{map:{},diacritics:false,ignoreDigits:true};}
+function valueOf(s){return cipherValue(s,currentCipher());}
+
+// English letter frequencies supplied by the user; digits and punctuation have zero weight.
+const ENGLISH_LETTER_FREQUENCIES=Object.freeze({a:0.08167,b:0.01492,c:0.02782,d:0.04253,e:0.12702,f:0.02228,g:0.02015,h:0.06094,i:0.06966,j:0.00153,k:0.00772,l:0.04025,m:0.02406,n:0.06749,o:0.07507,p:0.01929,q:0.00095,r:0.05987,s:0.06327,t:0.09056,u:0.02758,v:0.00978,w:0.0236,x:0.0015,y:0.01974,z:0.00074});
+function expectedCharValue(cfg){
+ if(!cfg||!cfg.numeric)return null;
+ let expected=0;
+ for(const [letter,frequency] of Object.entries(ENGLISH_LETTER_FREQUENCIES)){
+   // A case-sensitive cipher may distinguish uppercase letters. The English
+   // reference table is case-insensitive, so use lowercase values, falling
+   // back to uppercase when a cipher defines only uppercase letters.
+   const key=Object.prototype.hasOwnProperty.call(cfg.map,letter)?letter:letter.toUpperCase();
+   const value=cfg.map[key];
+   if(typeof value==='number'&&Number.isFinite(value))expected+=frequency*value;
+ }
+ return expected;
+}
+function updateCipherUI(){
+ let groups=new Map();for(let c of ciphers){if(!groups.has(c.category))groups.set(c.category,[]);groups.get(c.category).push(c);}
+ let select=$('cipher');select.innerHTML='';
+ for(let [group,arr] of groups){let g=document.createElement('optgroup');g.label=group;for(let c of arr){let o=document.createElement('option');o.value=c.name;o.textContent=c.name;g.append(o);}select.append(g);}
+ select.value=selectedCipher;const c=currentCipher();
+ const e=expectedCharValue(c);$('cipherExpected').textContent=e===null?'N/A':e.toFixed(3);
+ $('key').innerHTML=Object.entries(c.map).map(([k,v])=>`<span>${esc(k)}<em>${v}</em></span>`).join('');
+ $('cipherInfo').textContent=`${c.category||'Unknown'} · ${Object.keys(c.map).length} assigned characters · ${c.caseSensitive?'case-sensitive':'case-insensitive'} · ${'Latin letters normalized'} · ${c.ignoreDigits?'unassigned digits ignored':'unassigned digits contribute face value'}${c.numeric?'':' · Non-numeric substitution cipher: totals and histogram not applicable'}.`;
+}
+function revalue(){for(let r of state.records)r.value=valueOf(r.text);invalidateScope();state.selected=-1;state.display=100;filter();}
+$('cipher').addEventListener('change',()=>{selectedCipher=$('cipher').value;updateCipherUI();revalue();});
+updateCipherUI();
+function letterCount(s){let m=normalizeLatin(s).match(/[a-z]/gi);return m?m.length:0;}
+function charCount(s){let m=normalizeLatin(s).match(/[a-z0-9]/gi);return m?m.length:0;}
+function wordCount(s){let m=normalizeLatin(s).match(/[a-z0-9]+(?:['’\-][a-z0-9]+)*/gi);return m?m.length:0;}
+function sentenceSplit(t){const safe=t.replace(/\b(?:Mr|Mrs|Ms|Dr|Prof|St|etc|vs|e\.g|i\.e)\./gi,m=>m.replaceAll('.','\uE000'));return (safe.match(/[^.!?]+(?:[.!?]+["'’”)]*|$)/g)||[]).map(s=>s.replaceAll('\uE000','.').trim()).filter(Boolean);}
+function isHeading(t){return /^BOOK\s+(?:[IVX]+|\d+)\.?$/i.test(t)||/^CHAPTER\s+(?:[IVX]+|\d+)\.?$/i.test(t);}
+function cleanMilton(t){
+  // Accept any sequence of BOOK headings: 10-book and 12-book editions both work.
+  // Prefer real headings followed by text; reject short contents listings.
+  const raw=t.replace(/\r/g,'').split('\n');
+  const heading=/^(?:#+\s*)?(?:THE\s+)?BOOK\s+([IVX]+|\d+)\.?$/i;
+  const headings=[];
+  for(let i=0;i<raw.length;i++){const m=raw[i].trim().match(heading);if(m)headings.push({name:m[1].toUpperCase(),at:i});}
+  if(!headings.length){
+    // If no book headings exist, still permit the text to be analyzed by lines.
+    return [{name:'Full text',lines:raw.map(s=>s.trim()).filter(s=>s && !/^\*\*\*/.test(s))}];
+  }
+  const sections=[];
+  for(let i=0;i<headings.length;i++){
+    const h=headings[i],end=i+1<headings.length?headings[i+1].at:raw.length;
+    const chunk=raw.slice(h.at+1,end);
+    // Contents entries often consist of a heading and only a handful of lines.
+    if(chunk.filter(s=>s.trim()).length<20)continue;
+    let lines=[],inArgument=false,started=false;
+    for(const source of chunk){
+      const s=source.trim();
+      if(!s){if(inArgument)inArgument=false;continue;}
+      if(/^\*\*\*\s*(?:END|START) OF/i.test(s))break;
+      if(/^(?:THE\s+)?ARGUMENT\.?$/i.test(s)){inArgument=true;continue;}
+      if(inArgument)continue;
+      if(/^(?:PARADISE LOST\.?|THE END\.?|THE END OF THE (?:FIRST|SECOND|THIRD|FOURTH|FIFTH|SIXTH|SEVENTH|EIGHTH|NINTH|TENTH|ELEVENTH|TWELFTH) BOOK\.?|END OF BOOK(?:\s+[IVX]+)?\.?|CONTENTS\.?|INTRODUCTION\.?|NOTES\.?)$/i.test(s))continue;
+      if(/^(?:\[|#)/.test(s))continue;
+      // Remove line-number prefixes, if present, without changing verse text.
+      let verse=s.replace(/^\s*\d{1,5}\s*[.\t]\s*/, '').trim();
+      if(!verse)continue;
+      started=true;lines.push(verse.replace(/\s+/g,' '));
+    }
+    if(started)sections.push({name:'Book '+h.name,lines});
+  }
+  return sections;
+}
+function cleanBible(t){
+  const books=new Map();
+  for(const raw of t.replace(/\r/g,'').split('\n')){
+    const s=raw.trim(); if(!s)continue;
+    // Examples: Genesis 1:1 In the beginning... / 1 Samuel 3:4 ...
+    // Everything through chapter:verse is metadata; never include it in text.
+    const m=s.match(/^(.+?)\s+(\d{1,3}):(\d{1,3})\s+(.+)$/);
+    if(!m)continue;
+    const [,book,ch,vs,content]=m,chapter=Number(ch),verse=Number(vs);
+    if(!book.trim()||chapter<1||verse<1)continue;
+    if(!books.has(book))books.set(book,{name:book,chapters:new Map(),verses:[]});
+    const b=books.get(book);
+    const entry={text:content.trim(),chapter,verse,reference:`${book} ${chapter}:${verse}`};
+    b.verses.push(entry);
+    if(!b.chapters.has(chapter))b.chapters.set(chapter,[]);
+    b.chapters.get(chapter).push(entry);
+  }
+  return [...books.values()];
+}
+function cleanTao(t){
+  const sections=[], translations=t.split(/^@@TRANSLATION\s+(.+)\s*$/m);
+  for(let k=1;k<translations.length;k+=2){
+    const name=translations[k].trim(),content=translations[k+1]||'';
+    const chapters=new Map();let ch=0;
+    for(const raw of content.replace(/\r/g,'').split('\n')){
+      const line=raw.trim();if(!line)continue;
+      const head=line.match(/^##\s*(?:Chapter\s*)?(\d{1,2})\s*$/i);
+      if(head){ch=+head[1];if(!chapters.has(ch))chapters.set(ch,[]);continue;}
+      if(ch>=1 && ch<=81 && !/^\s*(?:#|---|Title:|Author:|Year:|Language:)/i.test(line)){
+        chapters.get(ch).push(line.replace(/\s+/g,' '));
+      }
+    }
+    if(chapters.size)sections.push({name,chapters});
+  }
+  return sections;
+}
+
+function cleanClassic(t){
+ const chunks=t.replace(/\r/g,'').split('\n'),sections=[];let cur=null;
+ for(const raw of chunks){const m=raw.trim().match(/^@@SECTION\s+(.+)$/);if(m){if(cur&&cur.lines.length)sections.push(cur);cur={name:m[1].trim(),lines:[]};continue;}
+   if(!cur)continue;const line=raw.trim();if(line&&!/^@@/.test(line))cur.lines.push(line);
+ }
+ if(cur&&cur.lines.length)sections.push(cur);
+ return sections;
+}
+function isClassic(){return CLASSICS.some(x=>x.id===state.dataset);}
+function cleanCustom(t){let sections=[],cur={name:'Full text',lines:[]};for(const raw of t.replace(/\r/g,'').split('\n')){let s=raw.trim();if(!s)continue;if(isHeading(s)){if(cur.lines.length)sections.push(cur);cur={name:s.replace(/\.$/,''),lines:[]};continue;}cur.lines.push(s.replace(/\s+/g,' '));}if(cur.lines.length)sections.push(cur);return sections;}
+function taoSelection(){return state.dataset.startsWith('tao:')?state.dataset.slice(4):null;}
+function isTao(){return state.dataset.startsWith('tao:');}
+function updateTranslationOptions(groupId, chosen){
+ const group=groupById(groupId);const sel=$('translation');sel.replaceChildren();
+ if(!group||!group.items.length){sel.add(new Option('No translation available',''));sel.disabled=true;return;}
+ const oneUntranslated=group.items.length===1&&!group.items[0][1];
+ for(const [id,label] of group.items)sel.add(new Option(label||'—',id));
+ sel.disabled=oneUntranslated;sel.value=group.items.some(x=>x[0]===chosen)?chosen:group.items[0][0];
+}
+function updateCorpusOptions(){
+ const old=state.dataset, groups=collectionGroups(),sel=$('corpus');sel.replaceChildren();
+ for(const g of groups)sel.add(new Option(g.name,g.id));
+ const group=groupForDataset(old);sel.value=group.id;updateTranslationOptions(group.id,old);
+ if(!group.items.some(x=>x[0]===old)){state.dataset=defaultDataset(group)||'milton';}
+}
+function recordsFor(){
+ const which=state.dataset,tao=isTao(),t=state.texts[which];
+ if(!t)return {sections:[],records:[]};
+ const sections=tao?[taoSection(which)].filter(Boolean):(which==='milton'||which==='milton_1674'||which==='milton_modern')?cleanMilton(t):isBible(which)?cleanBible(t):cleanClassic(t);
+ let out=[];
+ const add=(text,book,chapter,reference)=>out.push({book,chapter,reference,text});
+ const addWords=(text,book,chapter,reference)=>tokenizeWords(text).forEach((word,i)=>add(word,book,chapter,reference+', word '+(i+1)));
+ for(const sec of sections){
+  if(tao){for(const [ch,lines] of sec.chapters){
+    if(state.unit==='word')lines.forEach((line,i)=>addWords(line,sec.name,ch,`Chapter ${ch}, verse ${i+1}`));
+    else{const units=state.unit==='sentence'?sentenceSplit(lines.join(' ')):lines;units.forEach((text,i)=>add(text,sec.name,ch,`Chapter ${ch}, ${state.unit} ${i+1}`));}
+  }}else if(isBible(which)){
+    if(state.unit==='verse')for(const row of sec.verses)add(row.text,sec.name,row.chapter,row.reference);
+    else if(state.unit==='word')for(const row of sec.verses)addWords(row.text,sec.name,row.chapter,row.reference);
+    else for(const [ch,vs] of sec.chapters){sentenceSplit(vs.map(v=>v.text).join(' ')).forEach((text,i)=>add(text,sec.name,ch,`${sec.name} ${ch}, sentence ${i+1}`));}
+  }else{
+    if(state.unit==='word')sec.lines.forEach((line,i)=>addWords(line,sec.name,null,`${sec.name}, verse ${i+1}`));
+    else {const units=state.unit==='sentence'?sentenceSplit(sec.lines.join(' ')):sec.lines;units.forEach((text,i)=>add(text,sec.name,null,`${sec.name}, ${state.unit} ${i+1}`));}
+  }
+ }
+ return {sections,records:out.filter(r=>charCount(r.text)>0).map(r=>({...r,value:valueOf(r.text),chars:charCount(r.text),words:wordCount(r.text)}))};
+}
+function fillSections(){const old=$('section').value;let names=state.sections.map(s=>s.name);$('section').innerHTML='<option value="all">All books / sections</option>'+names.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');$('section').value=names.includes(old)?old:'all';fillChapters();}
+function fillChapters(){let selected=$('section').value,old=$('chapter').value;let chapters=[...new Set(state.records.filter(r=>selected==='all'||r.book===selected).map(r=>r.chapter).filter(x=>x!==null))].sort((a,b)=>a-b);$('chapter').innerHTML='<option value="all">All chapters</option>'+chapters.map(c=>`<option value="${c}">${c}</option>`).join('');$('chapter').value=chapters.some(x=>String(x)===old)?old:'all';$('chapter').disabled=!(isBible()||isTao());}
+function process(){
+ const d=recordsFor();state.sections=d.sections;state.records=d.records;invalidateScope();state.display=100;
+ fillSections();$('source').textContent=isTao()?'Tao Te Ching · '+taoSelection():isBible()?(BIBLE_EDITIONS.find(b=>b.id===state.dataset)?.file||'king_james_bible.txt')+' · verse references excluded from sums.':SOURCE[state.dataset]||'';
+ if(!state.records.length){
+   showStatus(loadingRequests.has(state.dataset)?'Loading selected text…':(loadingErrors.get(state.dataset)||`No valid observations for ${($('corpus').selectedOptions[0]?.text||state.dataset)}. Check its file format.`),false);
+ }else{
+   showStatus(`${state.records.length.toLocaleString()} ${state.unit==='sentence'?'sentences':state.unit==='word'?'words':'verses'} · ${state.sections.length} sections analyzed.`,true);
+ }
+ filter();
+}
+function showStatus(msg,good){let e=$('status');e.textContent=good?'':msg;e.hidden=!!good;e.className='notice '+(good?'good':'warn');}
+// Reuse the selected corpus slice and analytical charts while users type search terms.
+// A different cipher, unit or loaded text invalidates the cache explicitly.
+let scopeCache=null;
+function invalidateScope(){scopeCache=null;}
+function scoped(){
+ const book=$('section').value,ch=$('chapter').value;
+ if(scopeCache&&scopeCache.records===state.records&&scopeCache.book===book&&scopeCache.chapter===ch)return scopeCache.rows;
+ const rows=state.records.filter(r=>(book==='all'||r.book===book)&&(ch==='all'||String(r.chapter)===ch));
+ scopeCache={records:state.records,book,chapter:ch,rows,analysed:false};
+ return rows;
+}
+function filter(){
+ const rows=scoped(),min=$('min').value===''?-Infinity:Number($('min').value),max=$('valueMode').value==='single'?(Number.isFinite(min)?min:Infinity):($('max').value===''?Infinity:Number($('max').value)),q=normalizedSearch($('query').value);
+ state.filtered=rows.filter(r=>(r.value===null?(!Number.isFinite(min)&&!Number.isFinite(max)):r.value>=min&&r.value<=max)&&(!q||(r._searchText??(r._searchText=normalizedSearch(r.text))).includes(q)));
+ if(!scopeCache.analysed){setStats(rows);draw(rows);drawTimeline(rows);scopeCache.analysed=true;}
+ render();
+}
+function fmt(n,places=1){return n.toLocaleString(undefined,{maximumFractionDigits:places,minimumFractionDigits:places});}
+function setStats(rows){
+ const fields=['sCount','sMeanVal','sMedianVal','sMode','sWords','sChars','sRange','sStdev','sExpectedMean','sMeanDeviation'];
+ if(!rows.length){fields.forEach(x=>$(x).textContent='—');return;}
+ const n=rows.length,meanWords=rows.reduce((a,b)=>a+b.words,0)/n,meanChars=rows.reduce((a,b)=>a+b.chars,0)/n;
+ const E=expectedCharValue(currentCipher());
+ const expected=E===null?null:meanChars*E;
+ $('sCount').textContent=n.toLocaleString();$('sWords').textContent=fmt(meanWords);$('sChars').textContent=fmt(meanChars);
+ $('sExpectedMean').textContent=expected===null?'N/A':fmt(expected);
+ if(!currentCipher().numeric){['sMeanVal','sMedianVal','sMode','sRange','sStdev','sMeanDeviation'].forEach(x=>$(x).textContent='N/A');return;}
+ const vals=rows.map(x=>x.value).sort((a,b)=>a-b),total=vals.reduce((a,b)=>a+b,0),mean=total/n,freq=new Map();
+ for(const v of vals)freq.set(v,(freq.get(v)||0)+1);
+ const mode=[...freq].sort((a,b)=>b[1]-a[1]||a[0]-b[0])[0];
+ const variance=rows.reduce((s,x)=>s+(x.value-mean)**2,0)/n;
+ const median=n%2?vals[(n-1)/2]:(vals[n/2-1]+vals[n/2])/2;
+ $('sMeanVal').textContent=fmt(mean);$('sMedianVal').textContent=fmt(median);$('sMode').textContent=`${mode[0]} (${mode[1]}×)`;
+ $('sRange').textContent=`${vals[0]}–${vals[n-1]}`;$('sStdev').textContent=fmt(Math.sqrt(variance));
+ $('sMeanDeviation').textContent=expected===null?'N/A':fmt(mean-expected);
+}
+
+function makeBins(rows){if(!rows.length||!currentCipher().numeric)return [];let v=rows.map(r=>r.value),min=Infinity,max=-Infinity;for(const value of v){if(value<min)min=value;if(value>max)max=value;}let bw=$('bin').value==='auto'?Math.max(1,Math.ceil((max-min+1)/Math.min(65,Math.max(20,Math.sqrt(rows.length))))):Number($('bin').value);let start=Math.floor(min/bw)*bw,end=Math.floor(max/bw)*bw;let bins=Array.from({length:Math.floor((end-start)/bw)+1},(_,i)=>({lo:start+i*bw,hi:start+(i+1)*bw-1,n:0}));for(let x of v)bins[Math.floor((x-start)/bw)].n++;return bins;}
+function draw(rows){let canvas=$('chart'),ctx=canvas.getContext('2d'),rect=canvas.getBoundingClientRect(),w=Math.max(280,Math.round(rect.width)),h=Math.max(180,Math.round(rect.height)),ratio=devicePixelRatio||1;canvas.width=w*ratio;canvas.height=h*ratio;ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);let bins=makeBins(rows);state.bins=bins;let pad={l:58,r:16,t:20,b:42},cw=w-pad.l-pad.r,ch=h-pad.t-pad.b,max=Math.max(1,...bins.map(x=>x.n));ctx.font='11px system-ui';ctx.fillStyle='#adbbba';ctx.strokeStyle='#3b4a4d';for(let i=0;i<5;i++){let y=pad.t+ch*(1-i/4);ctx.beginPath();ctx.moveTo(pad.l,y);ctx.lineTo(w-pad.r,y);ctx.stroke();ctx.textAlign='right';ctx.fillText(Math.round(max*i/4),pad.l-8,y+3);}if(!bins.length){ctx.textAlign='center';ctx.fillText(currentCipher().numeric?'No corpus loaded':'Symbolic cipher — no numeric distribution',w/2,h/2);$('chartNote').textContent='';return;}let bw=cw/bins.length;bins.forEach((b,i)=>{let height=b.n/max*ch;ctx.fillStyle=state.selected===i?'#9ceaff':'#368fe4';ctx.fillRect(pad.l+i*bw+Math.min(.7,bw*.1),pad.t+ch-height,Math.max(.4,bw-1),height);});ctx.textAlign='center';ctx.fillStyle='#adbbba';let tickEvery=Math.max(1,Math.ceil(bins.length/9));bins.forEach((b,i)=>{if(i%tickEvery===0||i===bins.length-1)ctx.fillText(b.lo,pad.l+(i+.5)*bw,h-22);});canvas._geometry={l:pad.l,bw};$('chartNote').textContent=`${bins.length.toLocaleString()} bins · ${bins[0].lo}–${bins[bins.length-1].hi} · ${rows.length.toLocaleString()} units. Histogram includes the selected book/chapter even when value filters are active.`;}
+function drawTimeline(rows){
+ const canvas=$('timeline'), tooltip=$('timelineTooltip'), note=$('timelineNote'), error=$('zoomError');
+ const rect=canvas.getBoundingClientRect(),w=Math.max(280,Math.round(rect.width)),h=Math.max(200,Math.round(rect.height)),ratio=window.devicePixelRatio||1;
+ canvas.width=Math.round(w*ratio);canvas.height=Math.round(h*ratio);
+ const ctx=canvas.getContext('2d');ctx.setTransform(ratio,0,0,ratio,0,0);ctx.clearRect(0,0,w,h);
+ tooltip.style.display='none';error.textContent='';ctx.font='12px system-ui';
+ const all=rows;
+ canvas._timeline={rows:[],plot:null};
+ if(!all.length){ctx.textAlign='center';ctx.fillStyle='#aeb9b7';ctx.fillText(currentCipher().numeric?'Load a text to view its sequence':'Symbolic cipher — numerical graph unavailable',w/2,h/2);note.textContent='';return;}
+ const n=all.length, sx=$('xStart').value,ex=$('xEnd').value;
+ const xMin=sx===''?1:Number(sx),xMax=ex===''?n:Number(ex);
+ if(!Number.isInteger(xMin)||!Number.isInteger(xMax)||xMin<1||xMax>n||xMin>xMax){error.textContent=`X range must be whole numbers between 1 and ${n.toLocaleString()}, with start ≤ end.`;note.textContent='';return;}
+ const visible=all.slice(xMin-1,xMax);
+ let low=Infinity,high=-Infinity;for(const r of visible){low=Math.min(low,r.value);high=Math.max(high,r.value);}
+ const padY=Math.max(1,(high-low)*.045);
+ const yMin=$('yStart').value===''?low-padY:Number($('yStart').value);
+ const yMax=$('yEnd').value===''?high+padY:Number($('yEnd').value);
+ if(!Number.isFinite(yMin)||!Number.isFinite(yMax)||yMin>=yMax){error.textContent='Y minimum must be smaller than Y maximum.';note.textContent='';return;}
+ const p={l:70,r:20,t:22,b:46},pw=w-p.l-p.r,ph=h-p.t-p.b;
+ const xAt=i=>p.l+(xMin===xMax?pw/2:(i-xMin)/(xMax-xMin)*pw);
+ const yAt=v=>p.t+(yMax-v)/(yMax-yMin)*ph;
+ ctx.strokeStyle='#3b4a4d';ctx.lineWidth=1;ctx.fillStyle='#aeb9b7';
+ for(let i=0;i<=4;i++){
+  let yy=p.t+i*ph/4,v=yMax-i*(yMax-yMin)/4;
+  ctx.beginPath();ctx.moveTo(p.l,yy);ctx.lineTo(w-p.r,yy);ctx.stroke();
+  ctx.textAlign='right';ctx.fillText(Math.abs(v)>=100000?v.toExponential(1):Number(v.toFixed(1)).toLocaleString(),p.l-9,yy+4);
+ }
+ for(let i=0;i<=4;i++){
+  const ordinal=Math.round(xMin+(xMax-xMin)*i/4),xx=xAt(ordinal);
+  ctx.textAlign='center';ctx.fillText(ordinal.toLocaleString(),xx,h-16);
+ }
+ ctx.save();ctx.beginPath();ctx.rect(p.l,p.t,pw,ph);ctx.clip();
+ ctx.strokeStyle='#45bcff';ctx.lineWidth=1.15;ctx.beginPath();
+ const stride=state.unit==='word'?Math.max(1,Math.ceil(visible.length/(pw*2))):1;for(let i=0;i<visible.length;i+=stride){
+  const xx=xAt(xMin+i),yy=yAt(visible[i].value);
+  if(i===0)ctx.moveTo(xx,yy);else ctx.lineTo(xx,yy);
+ }ctx.stroke();
+ if(visible.length<=200){ctx.fillStyle='#b1e9ff';for(let i=0;i<visible.length;i++){ctx.beginPath();ctx.arc(xAt(xMin+i),yAt(visible[i].value),2.4,0,Math.PI*2);ctx.fill();}}
+ ctx.restore();
+ canvas._timeline={rows:visible,plot:{...p,w,h,pw,ph,xMin,xMax,yMin,yMax}};
+ note.textContent=`Showing ${visible.length.toLocaleString()} of ${n.toLocaleString()} observations · positions ${xMin.toLocaleString()}–${xMax.toLocaleString()} · visible values ${low.toLocaleString()}–${high.toLocaleString()}.`;
+}
+$('timeline').addEventListener('mousemove',e=>{
+ const canvas=$('timeline'),t=canvas._timeline,tooltip=$('timelineTooltip');
+ if(!t?.plot||!t.rows.length){tooltip.style.display='none';return;}
+ const g=t.plot,b=canvas.getBoundingClientRect(),x=e.clientX-b.left;
+ if(x<g.l-8||x>g.w-g.r+8){tooltip.style.display='none';return;}
+ const idx=t.rows.length===1?0:Math.max(0,Math.min(t.rows.length-1,Math.round((x-g.l)/g.pw*(t.rows.length-1))));
+ const r=t.rows[idx],ordinal=g.xMin+idx;
+ tooltip.innerHTML=`<strong>#${ordinal.toLocaleString()} · ${r.value.toLocaleString()}</strong><div>${esc(r.reference)}</div><div>${esc(r.text.length>180?r.text.slice(0,180)+'…':r.text)}</div>`;
+ tooltip.style.display='block';
+ const width=tooltip.offsetWidth,xx=Math.max(0,Math.min(b.width-width,x+14));
+ tooltip.style.left=xx+'px';tooltip.style.top=Math.max(0,Math.min(b.height-tooltip.offsetHeight,(e.clientY-b.top)-tooltip.offsetHeight-12))+'px';
+});
+$('timeline').addEventListener('mouseleave',()=>{$('timelineTooltip').style.display='none';});
+function resetZoom(){for(const id of ['xStart','xEnd','yStart','yEnd'])$(id).value='';drawTimeline(scoped());}
+for(const id of ['xStart','xEnd','yStart','yEnd'])$(id).addEventListener('input',()=>drawTimeline(scoped()));
+$('resetZoom').addEventListener('click',resetZoom);
+function render(){let rows=state.filtered.slice(0,state.display);$('matches').textContent=`${state.filtered.length.toLocaleString()} matches`;$('resultsHeading').textContent=state.unit==='sentence'?'Matching sentences':state.unit==='word'?'Matching words':'Matching verses';$('results').innerHTML=rows.length?rows.map(r=>`<div class="result"><div class="ref">${esc(r.reference)}<div class="small">${r.words} words · ${r.chars} chars</div></div><div class="verse">${esc(r.text)}</div><div class="number">${r.value===null?"—":r.value}</div></div>`).join(''):'<div class="empty">Nothing matches. Change the filters or load a corpus.</div>';$('shown').textContent=`Showing ${Math.min(state.display,state.filtered.length).toLocaleString()} / ${state.filtered.length.toLocaleString()}`;$('more').style.display=state.filtered.length>state.display?'':'none';}
+function resetFilters(){$('min').value='';$('max').value='';$('query').value='';state.selected=-1;state.display=100;}
+function setDataset(ds, preserveUnit=false){
+ for(const id of ['xStart','xEnd','yStart','yEnd'])$(id).value='';
+ state.dataset=ds;
+ const group=groupForDataset(ds);$('corpus').value=group.id;updateTranslationOptions(group.id,ds);
+ if(!preserveUnit){
+   state.unit=(ds==='milton'||ds==='milton_1674'||ds==='milton_modern'||VERSE_CLASSICS.has(ds)||/^(iliad|odyssey)_(pope|cowper|chapman)$/.test(ds)||isBible(ds))?'verse':'sentence';
+   $('unit').value=state.unit;
+ }
+ $('chapter').value='all';state.selected=-1;state.display=100;
+ if(state.texts[ds]){process();return;}
+ const pending=ensureDataset(ds);process();
+ pending.then(()=>{if(state.dataset===ds)process();});
+}
+$('corpus').addEventListener('change',()=>{const group=groupById($('corpus').value);if(group){const id=defaultDataset(group);if(id)setDataset(id);else{updateTranslationOptions(group.id,'');showStatus('No translations loaded for this collection.',false);}if(group.id==='tao')discoverTaoCatalog();}});
+$('translation').addEventListener('change',()=>{if($('translation').value)setDataset($('translation').value,true);});
+$('unit').addEventListener('change',()=>{state.unit=$('unit').value;state.selected=-1;state.display=100;process();});$('section').addEventListener('change',()=>{resetZoom();fillChapters();state.display=100;filter();});$('chapter').addEventListener('change',()=>{resetZoom();state.display=100;filter();});for(const x of ['min','max','query'])$(x).addEventListener('input',()=>{state.display=100;filter();});$('bin').addEventListener('change',()=>{state.selected=-1;draw(scoped());});$('clear').addEventListener('click',()=>{resetFilters();filter();});$('more').addEventListener('click',()=>{state.display+=100;render();});
+$('valueMode').addEventListener('change',()=>{const range=$('valueMode').value==='range';$('maxField').hidden=!range;$('minLabel').textContent=range?'Minimum value':'Exact value';state.selected=-1;state.display=100;filter();});
+$('chart').addEventListener('click',e=>{let g=$('chart')._geometry;if(!g||!state.bins.length)return;let x=e.clientX-$('chart').getBoundingClientRect().left,i=Math.floor((x-g.l)/g.bw);if(i<0||i>=state.bins.length)return;state.selected=i;let b=state.bins[i];$('valueMode').value=b.lo===b.hi?'single':'range';$('maxField').hidden=$('valueMode').value==='single';$('minLabel').textContent=$('valueMode').value==='single'?'Exact value':'Minimum value';$('min').value=b.lo;$('max').value=b.hi;state.display=100;filter();$('resultsHeading').scrollIntoView({block:'start',behavior:'smooth'});});
+function taoDisplayName(item){
+  const raw=String(item.name||'').trim(), file=String(item.file||'');
+  if(raw && !/^tao[_\s-]*\d+/i.test(raw))return raw;
+  const stem=file.replace(/\.txt$/i,'').replace(/^tao[_-]?(?:\d+[_-]?)?/i,'');
+  const aliases={gff:'Gia-fu Feng & Jane English',sm:'Stephen Mitchell',jc:'James Legge',rh:'Ron Hogan'};
+  const normalized=stem.replace(/[_-]+/g,' ').trim();
+  return aliases[stem.toLowerCase()]||normalized.replace(/\b\w/g,c=>c.toUpperCase())||'Unnamed translation';
+}
+// Demand-driven source loading. Each dataset is requested once per visit; parallel
+// callers share the same promise. The browser HTTP cache handles repeat visits.
+const SOURCE_FILES=new Map([['milton','paradise_lost_1667_augustana.txt'],['milton_1674','paradise_lost_1674_ota.txt'],['milton_modern','paradise_lost_modern.txt'],['bible','king_james_bible.txt'],...CLASSICS.map(x=>[x.id,x.file]),...BIBLE_EDITIONS.map(x=>[x.id,x.file])]);
+const loadingRequests=new Map(),loadingErrors=new Map();
+const CACHE_REVISION='2026-11-26-v2';
+function sourceFilename(id){return taoEntries.get(id)?.file||SOURCE_FILES.get(id)||null;}
+async function ensureDataset(id,force=false){
+ if(!sourceFilename(id))return false;
+ if(!force && state.texts[id])return true;
+ if(loadingRequests.has(id))return loadingRequests.get(id);
+ if(!force && loadingErrors.has(id))return false;
+ if(location.protocol==='file:'){
+  loadingErrors.set(id,'Open using the local HTTP server, not file://.');
+  return false;
+ }
+ const task=(async()=>{
+   try{
+     const file=sourceFilename(id);
+     // Versioned stable URL: permits ordinary browser caching rather than a fresh
+     // timestamped no-store download on every selection and every page visit.
+     const response=await fetch('./sources/'+encodeURIComponent(file)+'?v='+CACHE_REVISION,force?{cache:'reload'}:undefined);
+     if(!response.ok)throw Error(file+': HTTP '+response.status);
+     const raw=await response.text();
+     if(!raw.trim()||/^\s*<!doctype html|^\s*<html/i.test(raw))throw Error(file+': missing or invalid plain-text corpus');
+     if(taoEntries.has(id)){
+       if(!/^\s*##\s*(?:Chapter\s*)?\d{1,2}\s*$/im.test(raw))throw Error(file+': no chapter headings');
+       const parsed=cleanTao('@@TRANSLATION '+taoEntries.get(id).name+'\n'+raw);
+       if(!parsed.length)throw Error(file+': unable to parse translation');
+       taoParsed.set(id,parsed[0]);
+     }
+     state.texts[id]=raw;
+     loadingErrors.delete(id);
+     window.dispatchEvent(new CustomEvent('qabbala:dataset-loaded',{detail:{id}}));
+     return true;
+   }catch(err){loadingErrors.set(id,err.message);return false;}
+   finally{loadingRequests.delete(id);}
+ })();
+ loadingRequests.set(id,task);
+ return task;
+}
+async function loadTexts(){
+ // Reload only the currently selected text; don't refetch the entire archive.
+ const id=state.dataset;
+ const request=loadingRequests.get(id);
+ if(request)await request;
+ delete state.texts[id];taoParsed.delete(id);loadingErrors.delete(id);
+ showStatus('Reloading selected text…',false);
+ await ensureDataset(id,true);
+ if(state.dataset===id)process();
+ window.dispatchEvent(new CustomEvent('qabbala:dataset-reloaded',{detail:{id}}));
+}
+$('reloadTexts').addEventListener('click',loadTexts);
+$('export').addEventListener('click',()=>{let rows=state.filtered;let q=s=>'"'+String(s).replaceAll('"','""')+'"';let content='reference,book,chapter,unit,cipher,value,words,characters,text\n'+rows.map(r=>[r.reference,r.book,r.chapter??'',state.unit,selectedCipher,r.value,r.words,r.chars,r.text].map(q).join(',')).join('\n');let url=URL.createObjectURL(new Blob(['\ufeff',content],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download=`qabbala_${state.dataset}_${state.unit}_${selectedCipher.replace(/[^a-z0-9]+/gi,"_")}_matches.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);});
+let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{draw(scoped());drawTimeline(scoped());},140);});
+// Populate collection and translation selectors before selecting/loading a dataset.
+updateCorpusOptions();
+// Start with the linked corpus, not Milton followed by another full download.
+const openingText=new URLSearchParams(location.search).get('text');
+if(new URLSearchParams(location.search).get('view')==='compare'){
+ state.dataset='milton';updateCorpusOptions();process();
+}else{setDataset(openingText&&sourceFilename(openingText)?openingText:'milton');if(openingText?.startsWith('tao:'))discoverTaoCatalog();}
+</script><script src="compare.js?v=2026-11-26-v3"></script><script>
+(()=>{const names={corpus:'.corpus-panel',cipher:'.cipher-panel',stats:'main>.stats',hist:'.histogram-panel',search:'.search-panel',timeline:'#timelinePanel'};
+function update(){for(const [k,sel] of Object.entries(names)){const el=document.querySelector(sel),check=document.querySelector(`[data-visible="${k}"]`);if(el&&check)el.dataset.sectionHide=String(!check.checked);}window.dispatchEvent(new Event('resize'));}
+document.querySelectorAll('[data-visible]').forEach(el=>el.addEventListener('change',update));update();
+})();
+</script><script>
+(()=>{
+ const e=document.getElementById('navExplorer'),i=document.getElementById('navIntro'),v=document.getElementById('introView'),c=document.getElementById('introContent');
+ let loaded=false;
+ const escape=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+ function inline(s){
+  // Escape text first, then parse Markdown links with URL protocol allowlisting.
+  const parts=[];
+  const linkRE=/\[([^\]\n]+)\]\(([^\s()]+)(?:\s+"([^"]*)")?\)/g;
+  let last=0,m;
+  const format=text=>escape(text).replace(/`([^`]+)`/g,'<code>$1</code>').replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>').replace(/\*([^*]+)\*/g,'<em>$1</em>');
+  while((m=linkRE.exec(s))){
+   parts.push(format(s.slice(last,m.index)));
+   const url=m[2];
+   if(/^(https?:\/\/|mailto:)/i.test(url)){
+    const title=m[3]?' title="'+escape(m[3])+'"':'';
+    parts.push('<a href="'+escape(url)+'"'+title+' target="_blank" rel="noopener noreferrer">'+format(m[1])+'</a>');
+   }else parts.push(format(m[0]));
+   last=linkRE.lastIndex;
+  }
+  parts.push(format(s.slice(last)));
+  return parts.join('');
+ }
+ function render(md){
+  const lines=md.replace(/\r\n?/g,'\n').split('\n'),out=[];let para=[],list=[];
+  const flushPara=()=>{if(para.length){out.push('<p>'+inline(para.join(' '))+'</p>');para=[];}};
+  const flushList=()=>{if(list.length){out.push('<ul>'+list.map(x=>'<li>'+inline(x)+'</li>').join('')+'</ul>');list=[];}};
+  const cells=line=>{
+   let t=line.trim();if(t.startsWith('|'))t=t.slice(1);if(t.endsWith('|'))t=t.slice(0,-1);
+   return t.split('|').map(v=>v.trim());
+  };
+  const dividerCell=c=>/^:?-{3,}:?$/.test(c);
+  const isTableStart=i=>i+1<lines.length&&lines[i].includes('|')&&
+   cells(lines[i]).length>1&&cells(lines[i+1]).length===cells(lines[i]).length&&
+   cells(lines[i+1]).every(dividerCell);
+  for(let i=0;i<lines.length;i++){
+   const t=lines[i].trim();if(!t){flushPara();flushList();continue;}
+   if(isTableStart(i)){
+    flushPara();flushList();
+    const headings=cells(lines[i]),rules=cells(lines[i+1]);
+    const align=rules.map(x=>x.startsWith(':')&&x.endsWith(':')?'center':x.endsWith(':')?'right':x.startsWith(':')?'left':'');
+    const cellHTML=(tag,value,k)=>'<'+tag+(align[k]?' style="text-align:'+align[k]+'"':'')+'>'+inline(value)+'</'+tag+'>';
+    let html='<div class="intro-table-scroll"><table><thead><tr>'+headings.map((v,k)=>cellHTML('th',v,k)).join('')+'</tr></thead><tbody>';
+    i++;
+    while(i+1<lines.length&&lines[i+1].trim()&&lines[i+1].includes('|')){
+     const row=cells(lines[++i]);
+     if(row.length!==headings.length)break;
+     html+='<tr>'+row.map((v,k)=>cellHTML('td',v,k)).join('')+'</tr>';
+    }
+    out.push(html+'</tbody></table></div>');continue;
+   }
+   const h=t.match(/^(#{1,3})\s+(.+)$/);if(h){flushPara();flushList();out.push('<h'+h[1].length+'>'+inline(h[2])+'</h'+h[1].length+'>');continue;}
+   if(/^---+$/.test(t)){flushPara();flushList();out.push('<hr>');continue;}
+   const li=t.match(/^[-*]\s+(.+)$/);if(li){flushPara();list.push(li[1]);continue;}
+   flushList();if(t.startsWith('> ')){flushPara();out.push('<blockquote>'+inline(t.slice(2))+'</blockquote>');continue;}para.push(t);
+  }
+  flushPara();flushList();return out.join('\n');
+ }
+ async function intro(){if(loaded)return;try{const r=await fetch('./intro.md',{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);const raw=await r.text();c.innerHTML=render(raw);loaded=true;}catch(err){c.innerHTML='<h1>INTRO</h1><p>Could not load intro.md ('+escape(err.message)+').</p>';}}
+ function show(which){const isIntro=which==='intro';document.body.classList.toggle('intro-mode',isIntro);v.hidden=!isIntro;e.classList.toggle('active',!isIntro);i.classList.toggle('active',isIntro);e.toggleAttribute('aria-current',!isIntro);i.toggleAttribute('aria-current',isIntro);if(isIntro)intro();else window.dispatchEvent(new Event('resize'));}
+ e.addEventListener('click',()=>show('explorer'));i.addEventListener('click',()=>show('intro'));show(new URLSearchParams(location.search).get('page')==='intro'?'intro':'explorer');
+})();
+</script><script>
+// SHAREABLE ANALYSIS LINKS / live URL sync, single values, and explicit landing page.
+(()=>{
+ 'use strict';
+ const $s=id=>document.getElementById(id);
+ const initial=new URLSearchParams(location.search);
+ const read=id=>$s(id)?.value||'';
+ const selectValue=(id,v)=>{const el=$s(id);if(!el)return false;if(el.tagName==='SELECT'&&!Array.from(el.options).some(o=>o.value===v))return false;el.value=String(v).slice(0,400);return true;};
+ const button=$s('shareAnalysis');
+ let restoring=false,ready=false,queued=false;
+ function buildURL(){
+   const u=new URL(location.href);u.search='';u.hash='';
+   const q=u.searchParams;
+   if(document.body.classList.contains('intro-mode'))q.set('page','intro');
+   const cmp=!!window.QabbalaCompare?.active();
+   q.set('view',cmp?'compare':'single');
+   if(cmp){
+     q.set('panels',JSON.stringify(window.QabbalaCompare.getPanels()));
+     const mode=read('compareValueMode');const lo=read('compareMin'),hi=read('compareMax');
+     if(mode==='single'){if(lo!=='')q.set('value',lo);}
+     else{q.set('valueMode','range');if(lo!=='')q.set('min',lo);if(hi!=='')q.set('max',hi);}
+     const term=read('compareQuery');if(term)q.set('query',term);
+   }else{
+     q.set('text',state.dataset);q.set('unit',state.unit);q.set('cipher',selectedCipher);
+     for(const k of ['section','chapter','bin','query','xStart','xEnd','yStart','yEnd']){
+       const v=read(k);if(v && v!=='all' && !(k==='bin'&&v==='auto'))q.set(k,v);
+     }
+     const mode=read('valueMode'),lo=read('min'),hi=read('max');
+     if(mode==='single'){if(lo!=='')q.set('value',lo);}
+     else{q.set('valueMode','range');if(lo!=='')q.set('min',lo);if(hi!=='')q.set('max',hi);}
+   }
+   return u;
+ }
+ function syncURL(){if(!ready||restoring)return;const next=buildURL();if(next.href!==location.href)history.replaceState(null,'',next.pathname+next.search+next.hash);}
+ function scheduleSync(){if(!ready||restoring||queued)return;queued=true;queueMicrotask(()=>{queued=false;syncURL();});}
+ // Capture ordinary inputs and mode switches, including settings inside dynamic compare cards.
+ document.addEventListener('change',scheduleSync,true);
+ document.addEventListener('input',scheduleSync,true);
+ document.addEventListener('click',event=>{
+   if(event.target.closest('#navIntro,#navExplorer,#modeSingle,#modeCompare,#clear,#compareClear,#chart,#compareCards button'))scheduleSync();
+ },true);
+ window.addEventListener('qabbala:compare-updated',scheduleSync);
+ // Visible button still provides one-click copying, from the exact same URL as the address bar.
+ button.addEventListener('click',async()=>{
+   syncURL();const url=buildURL().href;
+   try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(url);button.textContent='LINK COPIED';}
+     else window.prompt('Copy analysis URL:',url);
+   }catch(e){window.prompt('Copy analysis URL:',url);}
+   if(button.textContent==='LINK COPIED')button.addEventListener('blur',()=>button.textContent='SHARE ANALYSIS',{once:true});
+ });
+ async function restore(){
+   if(ready)return;
+   restoring=true;
+   try{
+     // Legacy links with no view= still work, and direct analysis links open Explorer.
+     if(initial.get('view')==='compare'){
+       let panels=[];try{panels=JSON.parse(initial.get('panels')||'[]');}catch(e){}
+       window.QabbalaCompare?.restore?.(panels);
+       const mode=initial.get('valueMode')==='range'?'range':'single';
+       selectValue('compareValueMode',mode);
+       if(mode==='single'){
+         const v=initial.has('value')?initial.get('value'):(initial.get('min')||'');
+         selectValue('compareMin',v);selectValue('compareMax','');
+       }else{
+         selectValue('compareMin',initial.get('min')||'');selectValue('compareMax',initial.get('max')||'');
+       }
+       selectValue('compareQuery',initial.get('query')||'');
+       // Synchronize shared filters and redraw without an intermediate URL update.
+       $s('compareValueMode')?.dispatchEvent(new Event('change',{bubbles:true}));
+     }else{
+       const dataset=initial.get('text');
+       if(dataset && sourceFilename(dataset) && state.dataset!==dataset)setDataset(dataset);
+       await ensureDataset(state.dataset);
+       process();
+       const cipher=initial.get('cipher');
+       if(cipher&&ciphers.some(c=>c.name===cipher)){
+         selectedCipher=cipher;selectValue('cipher',cipher);updateCipherUI();revalue();
+       }
+       const unit=initial.get('unit');
+       if(['verse','sentence','word'].includes(unit)){state.unit=unit;selectValue('unit',unit);process();}
+       // Changing section regenerates the available chapter list.
+       if(initial.has('section')&&selectValue('section',initial.get('section')))fillChapters();
+       if(initial.has('chapter'))selectValue('chapter',initial.get('chapter'));
+       for(const k of ['bin','query','xStart','xEnd','yStart','yEnd'])if(initial.has(k))selectValue(k,initial.get(k));
+       const mode=initial.get('valueMode')==='range'?'range':'single';
+       selectValue('valueMode',mode);
+       if(mode==='single'){
+         selectValue('min',initial.has('value')?initial.get('value'):(initial.get('min')||''));
+         selectValue('max','');
+       }else{selectValue('min',initial.get('min')||'');selectValue('max',initial.get('max')||'');}
+       $s('maxField').hidden=mode!=='range';
+       $s('minLabel').textContent=mode==='range'?'Minimum value':'Exact value';
+       filter();
+     }
+     if(initial.get('page')==='intro')$s('navIntro')?.click();
+     else $s('navExplorer')?.click();
+   }finally{restoring=false;ready=true;syncURL();}
+ }
+ // Restore settings immediately after the selected text finishes loading.
+ // COMPARE starts its own independent per-panel requests.
+ restore();
+})();
+</script></body></html>

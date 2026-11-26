@@ -1,0 +1,10 @@
+Corrected text preparation:
+- Homer: detects BOOK I / BOOK 1, and Chapman's THE FIRST BOOK OF HOMER'S ILIADS.
+- Table of contents does not count as book content; all 24 substantial books are required.
+- Dante: detects actual Longfellow headings, e.g. Inferno: Canto I; 100 cantos.
+- Reuses downloaded source files in sources/; avoids unnecessary downloads.
+
+To retry only the failures:
+python3 prepare_classics.py --only iliad odyssey iliad_pope iliad_cowper iliad_chapman odyssey_pope odyssey_chapman dante
+
+Enneads remains separate: the MIT file is reporting only 39 sections under the existing parser and must not be treated as a validated complete edition.
